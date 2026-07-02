@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Studio | BEAUTIFY AI</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="studio-page">
+    <div id="app">
+        <!-- Navbar -->
+        <nav class="glass-nav">
+            <div class="brand" onclick="window.location.href='/'">
+                <div class="brand-icon">
+                    <i data-lucide="sparkles"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Beautify AI</h1>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <button class="ghost-btn" onclick="window.location.href='/'">Back to Home</button>
+                <div id="user-profile-trigger">
+                    <div class="user-avatar-small">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User">
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="studio-main">
+            <div class="studio-container">
+                <div class="studio-header">
+                    <h2>AI Transformation Studio</h2>
+                    <p>Select your processing mode and upload your portraits.</p>
+                </div>
+
+                <!-- Mode Selector -->
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="direct">
+                        <i data-lucide="zap"></i>
+                        <span>Direct Beautify</span>
+                    </button>
+                    <button class="mode-btn" data-mode="reference">
+                        <i data-lucide="copy"></i>
+                        <span>Reference Fusion</span>
+                    </button>
+                </div>
+
+                <!-- Demo Animation Section -->
+                <div class="demo-section">
+                    <div class="demo-header">
+                        <h3>See AI Beautification in Action</h3>
+                        <p>Watch how our AI enhances facial features in real-time</p>
+                    </div>
+                    <button id="demo-btn" class="pill-btn-secondary">
+                        <i data-lucide="play"></i>
+                        Start Demo
+                    </button>
+                    <div id="demo-container" class="demo-container hidden">
+                        <div class="face-demo">
+                            <div class="face-placeholder" id="face-placeholder">
+                                <div class="face-emoji" id="face-emoji">👩</div>
+                            </div>
+                            <div class="processing-steps" id="processing-steps">
+                                <div class="step active" data-step="1">Analyzing face...</div>
+                                <div class="step" data-step="2">Smoothing skin...</div>
+                                <div class="step" data-step="3">Enhancing eyes...</div>
+                                <div class="step" data-step="4">Brightening smile...</div>
+                                <div class="step" data-step="5">Final touches...</div>
+                                <div class="step" data-step="6">✨ Beauty complete!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Section -->
+                <div class="upload-workspace">
+                    <!-- Target Image (Always required) -->
+                    <div class="upload-zone" id="target-zone">
+                        <input type="file" id="target-input" accept="image/*" hidden>
+                        <div class="upload-placeholder">
+                            <i data-lucide="upload-cloud"></i>
+                            <p>Upload Portrait</p>
+                            <span>Click or drag your photo here</span>
+                        </div>
+                        <img id="target-preview" class="hidden">
+                    </div>
+
+                    <!-- Reference Image (Only for Reference mode) -->
+                    <div class="upload-zone hidden" id="reference-zone">
+                        <input type="file" id="reference-input" accept="image/*" hidden>
+                        <div class="upload-placeholder">
+                            <i data-lucide="image"></i>
+                            <p>Reference Style</p>
+                            <span>Upload the style you want to mimic</span>
+                        </div>
+                        <img id="reference-preview" class="hidden">
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="studio-actions">
+                    <button id="process-btn" class="pill-btn-premium disabled" disabled>
+                        Initialize AI Transformation
+                    </button>
+                </div>
+
+                <!-- Result Section -->
+                <div id="result-container" class="hidden">
+                    <div class="result-header">
+                        <h3>Transformation Complete</h3>
+                        <button id="download-btn" class="ghost-btn-small"><i data-lucide="download"></i></button>
+                    </div>
+                    <div class="result-visual-comparison">
+                        <div class="comparison-panel">
+                            <h4>Original</h4>
+                            <img id="original-result-image" alt="Original">
+                        </div>
+                        <div class="comparison-panel">
+                            <h4>Beautified</h4>
+                            <img id="result-image" alt="Beautified">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="/src/studio.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

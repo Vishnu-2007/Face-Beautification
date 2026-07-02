@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | BEAUTIFY AI</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="login-page">
+    <div id="app">
+        <!-- Background Glows -->
+        <div class="glow-top"></div>
+        <div class="glow-bottom"></div>
+
+        <!-- Floating Orbs -->
+        <div class="orb o1 animate-bounce"></div>
+        <div class="orb o2 animate-pulse"></div>
+
+        <!-- Navbar -->
+        <nav class="auth-nav">
+            <div class="brand" onclick="window.location.href='/'">
+                <div class="brand-icon">
+                    <i data-lucide="sparkles"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Beautify AI</h1>
+                    <p>AI BEAUTY, REDEFINED</p>
+                </div>
+            </div>
+            <button class="lang-btn">
+                <i data-lucide="globe"></i>
+                English
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="login-main">
+            <div class="login-grid">
+                <!-- LEFT SIDE: Visuals -->
+                <div class="visual-side">
+                    <!-- Floating Cards -->
+                    <div class="floating-card analysis-card">
+                        <div class="icon-wrap indigo">
+                            <i data-lucide="sparkles"></i>
+                        </div>
+                        <h3>New Journey</h3>
+                        <p>Welcome to the future.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 40%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Main Image Section -->
+                    <div class="image-wrapper">
+                        <div class="image-glow"></div>
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="beauty" class="hero-image">
+                        <div class="image-overlay"></div>
+                        <div class="holographic-ring"></div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: Form -->
+                <div class="form-side">
+                    <div class="form-card glass-premium">
+                        <!-- Logo -->
+                        <div class="form-logo">
+                            <i data-lucide="user-plus"></i>
+                        </div>
+
+                        <!-- Heading -->
+                        <div class="form-header">
+                            <h1>Join Us</h1>
+                            <p>Start your transformation today</p>
+                        </div>
+
+                        <!-- Form -->
+                        <form id="signup-form" class="auth-form-v2">
+                            <div class="input-group">
+                                <i data-lucide="user"></i>
+                                <input type="text" placeholder="Full Name" id="name-input" required>
+                            </div>
+
+                            <div class="input-group">
+                                <i data-lucide="mail"></i>
+                                <input type="email" placeholder="Email address" id="email-input" required>
+                            </div>
+
+                            <div class="input-group">
+                                <i data-lucide="lock"></i>
+                                <input type="password" placeholder="Create Password" id="password-input" required>
+                                <i data-lucide="eye" class="toggle-password"></i>
+                            </div>
+
+                            <div class="form-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    I agree to the Terms & Conditions
+                                </label>
+                            </div>
+
+                            <button type="submit" class="login-btn">
+                                Create Account <span class="arrow">→</span>
+                            </button>
+
+                            <div class="divider">
+                                <span>or register with</span>
+                            </div>
+
+                            <button type="button" class="google-btn">
+                                <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google">
+                                Sign up with Google
+                            </button>
+
+                            <p class="signup-prompt">
+                                Already have an account? <a href="/login.html">Login</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="/src/signup.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

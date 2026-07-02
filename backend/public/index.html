@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEAUTIFY AI | Futuristic Beauty Intelligence</title>
+    <meta name="description" content="Premium AI-powered face beautification and skin analysis. Experience Apple-level minimalism and futuristic tech.">
+</head>
+<body class="light-theme">
+    <div id="app">
+        <!-- Spatial Background Layers -->
+        <div class="ambient-glow"></div>
+        <div class="neural-network" id="neural-canvas"></div>
+        <div class="holographic-rings">
+            <div class="ring r1"></div>
+            <div class="ring r2"></div>
+        </div>
+
+        <!-- Premium Glass Navbar -->
+        <nav class="glass-nav">
+            <div class="logo-container">
+                <img src="/logo.png" alt="Beautify AI" class="logo-img">
+                <span class="logo-text">BEAUTIFY AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#showcase">Showcase</a>
+                <a href="#analysis">Analysis</a>
+                <div id="user-profile-trigger" class="hidden">
+                    <div class="user-avatar-small">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User Avatar">
+                    </div>
+                </div>
+                <button id="auth-btn" class="pill-btn-premium">Login</button>
+            </div>
+        </nav>
+
+        <!-- Account Dashboard Overlay -->
+        <div id="dashboard-overlay" class="hidden">
+            <div class="glass-card dashboard-card tilt-3d">
+                <button class="close-dashboard">×</button>
+                <div class="dashboard-sidebar">
+                    <div class="user-info">
+                        <div class="user-avatar-large">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User Avatar">
+                        </div>
+                        <h3 id="user-display-name">Alex Smith</h3>
+                        <p id="user-display-email">alex@example.com</p>
+                    </div>
+                    <div class="dashboard-tabs">
+                        <button class="dash-tab active" data-tab="history">
+                            <i data-lucide="history"></i> History
+                        </button>
+                        <button class="dash-tab" data-tab="settings">
+                            <i data-lucide="settings"></i> Settings
+                        </button>
+                        <button class="dash-tab" data-tab="account">
+                            <i data-lucide="user"></i> Account
+                        </button>
+                        <button class="dash-tab logout-tab">
+                            <i data-lucide="log-out"></i> Logout
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <!-- History Tab -->
+                    <div id="tab-history" class="tab-pane active">
+                        <h2>Transformation History</h2>
+                        <div id="history-list" class="history-grid">
+                            <!-- History items will be injected here -->
+                            <div class="history-empty">
+                                <p>No transformations yet. Start your first scan!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div id="tab-settings" class="tab-pane">
+                        <h2>Preferences</h2>
+                        <div class="settings-list">
+                            <div class="setting-item">
+                                <span>High Resolution Export</span>
+                                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                            </div>
+                            <div class="setting-item">
+                                <span>Public Profile</span>
+                                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                            </div>
+                            <div class="setting-item">
+                                <span>Dark Mode (Auto)</span>
+                                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Tab -->
+                    <div id="tab-account" class="tab-pane">
+                        <h2>Account Security</h2>
+                        <div class="account-details">
+                            <div class="detail-row">
+                                <span>Plan</span>
+                                <strong>Free Tier</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Joined</span>
+                                <strong id="user-joined-date">Jan 2026</strong>
+                            </div>
+                            
+                            <div id="password-update-box" class="hidden" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                                <input type="password" id="old-pass" placeholder="Current Password" class="ghost-input-small">
+                                <input type="password" id="new-pass" placeholder="New Password" class="ghost-input-small">
+                                <button id="confirm-pass-update" class="pill-btn-premium">Save New Password</button>
+                            </div>
+
+                            <button id="show-pass-update" class="ghost-btn-small" style="margin-top: 15px;">Update Password</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <!-- Hero Section: Cinematic Composition -->
+            <section id="hero">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <div class="badge">Next-Gen AI Beauty</div>
+                        <h1 class="hero-title">AI-Powered <span class="glow-text">Skin Analysis</span> & Face Beautification</h1>
+                        <p class="hero-subtitle">Experience the future of personal aesthetics. Transform your appearance with precision engineering and neural intelligence.</p>
+                        <div class="hero-actions">
+                            <button id="get-started" class="cta-premium">Start Transformation</button>
+                            <button class="ghost-btn">Watch Film <span>▶</span></button>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="spatial-card-container ">
+                            <div class="glass-card-spatial">
+                                <div class="split-comparison">
+                                    <img src="/hero-bg.png" alt="Face Analysis" class="comparison-img">
+                                    <div class="scan-line"></div>
+                                    <div class="analysis-tags">
+                                        <div class="tag t1">Texture: Smooth</div>
+                                        <div class="tag t2">Luminance: +40%</div>
+                                        <div class="tag t3">Symmetry: Perfect</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Features Section -->
+            <section id="features" class="section-padding">
+                <div class="section-header">
+                    <h2 class="section-title">Neural Precision</h2>
+                    <p class="section-subtitle">Deep learning models trained on millions of high-definition professional portraits.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card ">
+                        <div class="feature-icon">🔍</div>
+                        <h3>Dermal Analysis</h3>
+                        <p>Real-time scanning of 1024 unique facial landmarks for hyper-accurate results.</p>
+                    </div>
+                    <div class="feature-card ">
+                        <div class="feature-icon">✨</div>
+                        <h3>Intelligent Retouch</h3>
+                        <p>Subtle, natural enhancements that preserve your unique identity while maximizing appeal.</p>
+                    </div>
+                    <div class="feature-card ">
+                        <div class="feature-icon">🧬</div>
+                        <h3>Reference Fusion</h3>
+                        <p>Mimic any style with high-fidelity reference mapping and style transfer.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transformation Showcase -->
+            <section id="showcase" class="section-padding bg-accent">
+                <div class="showcase-container">
+                    <div class="showcase-text">
+                        <h2 class="section-title">Beyond Filters</h2>
+                        <p>Our AI doesn't just overlay effects; it understands the geometry of your beauty.</p>
+                    </div>
+                    <div class="showcase-visual ">
+                        <div class="glass-container-premium">
+                             <img src="/hero-bg.png" alt="Showcase" class="showcase-img">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analysis Cards -->
+            <section id="analysis" class="section-padding">
+                <div class="cards-layout">
+                    <div class="analysis-card ">
+                        <span class="card-status">LIVE ANALYSIS</span>
+                        <h4>Radiance Index</h4>
+                        <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                        <p>Enhancing skin luminosity via neural re-lighting.</p>
+                    </div>
+                    <div class="analysis-card ">
+                        <span class="card-status">AI ACTIVE</span>
+                        <h4>Structure Mapping</h4>
+                        <div class="neural-bits"><span></span><span></span><span></span></div>
+                        <p>Recalculating facial proportions for optimal harmony.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="minimal-footer">
+            <div class="footer-content">
+                <div class="footer-logo">BEAUTIFY AI</div>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+            <p class="copyright">© 2026 BEAUTIFY AI. Engineered for Excellence.</p>
+        </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
