@@ -8,7 +8,7 @@ let studioState = {
     isProcessing: false
 };
 
-const API_BASE = '/api';
+const API_BASE = import.meta.env.VITE_API_BASE || '/api';
 
 // --- DOM Elements ---
 const modeBtns = document.querySelectorAll('.mode-btn');
@@ -113,7 +113,12 @@ processBtn.onclick = async () => {
         
         const data = await res.json();
         if (data.success) {
-            resultImage.src = data.beautifiedImageUrl;
+            let beautifiedUrl = data.beautifiedImageUrl;
+            if (beautifiedUrl.startsWith('/')) {
+                const backendBase = API_BASE.endsWith('/api') ? API_BASE.slice(0, -4) : (API_BASE.endsWith('/') ? API_BASE.slice(0, -1) : API_BASE);
+                beautifiedUrl = `${backendBase}${beautifiedUrl}`;
+            }
+            resultImage.src = beautifiedUrl;
             const originalResultImage = document.getElementById('original-result-image');
             if (originalResultImage) {
                 originalResultImage.src = targetPreview.src;
@@ -126,7 +131,7 @@ processBtn.onclick = async () => {
             downloadBtn.onclick = async () => {
                 try {
                     downloadBtn.disabled = true;
-                    const response = await fetch(data.beautifiedImageUrl, { mode: 'cors' });
+                    const response = await fetch(beautifiedUrl, { mode: 'cors' });
                     if (!response.ok) {
                         throw new Error(`Download failed: ${response.status}`);
                     }

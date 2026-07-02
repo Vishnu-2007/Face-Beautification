@@ -1,5 +1,7 @@
 import './style.css'
 
+const API_BASE = import.meta.env.VITE_API_BASE || '/api';
+
 // --- State Management ---
 let currentState = {
     isLoggedIn: !!localStorage.getItem('user'),
@@ -95,7 +97,7 @@ function initDashboardLogic() {
             }
 
             try {
-                const res = await fetch('/api/auth/update-password', {
+                const res = await fetch(`${API_BASE}/auth/update-password`, {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',
@@ -246,20 +248,27 @@ async function fetchUserHistory() {
     if (!token || !historyList) return;
 
     try {
-        const res = await fetch('/api/user/history', {
+        const res = await fetch(`${API_BASE}/user/history`, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         const history = await res.json();
         
         if (history.length > 0) {
-            historyList.innerHTML = history.map(item => `
-                <div class="history-item tilt-3d">
-                    <img src="/uploads/${item.beautified_image}" alt="Beautified">
-                    <div class="history-info">
-                        <span>${new Date(item.timestamp).toLocaleDateString()}</span>
+            const backendBase = API_BASE.endsWith('/api') ? API_BASE.slice(0, -4) : (API_BASE.endsWith('/') ? API_BASE.slice(0, -1) : API_BASE);
+            historyList.innerHTML = history.map(item => {
+                let imgUrl = `/uploads/${item.beautified_image}`;
+                if (imgUrl.startsWith('/') && backendBase) {
+                    imgUrl = `${backendBase}${imgUrl}`;
+                }
+                return `
+                    <div class="history-item tilt-3d">
+                        <img src="${imgUrl}" alt="Beautified">
+                        <div class="history-info">
+                            <span>${new Date(item.timestamp).toLocaleDateString()}</span>
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
             
             const badge = document.querySelector('.badge');
             if (badge) badge.textContent = `${history.length} Transformations Saved`;
